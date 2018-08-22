@@ -15,7 +15,7 @@ object QuickStart {
       .appName("Spark Pi")
       .getOrCreate()
 
-    import spark.implicits._
+    import spark.implicits._        //使用隐式转换，下面的map函数需要使用
 
     val textFile=spark.read.textFile("E:\\IdeaProjects\\SparkExercise\\datas\\add-plugin.md")
 
@@ -28,7 +28,8 @@ object QuickStart {
     println(linesWithSpark.count())
     linesWithSpark.collect().foreach(println _)
 
-    val num= textFile.map(line => line.split(" ").size).reduce((a, b) => if (a > b) a else b)
+    val num= textFile.map(_.split(" ").size).reduce((a, b) => if (a > b) a else b)
+    //val num= textFile.map(line => line.split(" ").size).reduce((a, b) => if (a > b) a else b)
     println(num)
   }
 
