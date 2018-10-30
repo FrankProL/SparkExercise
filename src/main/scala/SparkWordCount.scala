@@ -18,6 +18,7 @@ object SparkWordCount {
     val sc = new SparkContext(conf)
     val texts = sc.textFile("file:///C:\\Users\\Frank\\Desktop\\sparktest.txt")
     val wordCount = texts.flatMap(line => line.split(",")).map(word => (word, 1)).reduceByKey((a, b) => a + b)
+    //val result = srcData.flatMap(_.split("\\s+")).map((_,1)).reduceByKey(_+_)
     wordCount.foreach(println _)
     sc.stop()
   }

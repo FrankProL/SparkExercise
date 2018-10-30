@@ -16,9 +16,17 @@ object Basic {
       .config("spark.some.config.option", "some-value")
       .getOrCreate()
 
-    val df = spark.read.json("E:\\IdeaProjects\\test123\\datas\\zips.json")
+    val df = spark.read.json("E:\\IdeaProjects\\SparkExercise\\datas\\zips.json")
 
     df.show()
+    df.printSchema()
+    df.select("city").show()
+
+    // This import is needed to use the $-notation
+    import spark.implicits._
+    df.select($"city", $"pop" + 1).show()
+    df.filter($"pop">5000).show()
+    df.groupBy("city").count().show()
     spark.close()
   }
 }
