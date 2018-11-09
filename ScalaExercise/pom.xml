@@ -9,11 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>scala_exercise</artifactId>
-    <packaging>pom</packaging>
-    <modules>
-        <module>../SparkLearning</module>
-    </modules>
+    <artifactId>scala-exercise</artifactId>
 
 
 </project>
