@@ -7,8 +7,8 @@ object ClosureTest {
   }
 
   def lazy_sum(arr:Array[Int]): Int ={
-    var sum=sum(arr)
-    sum
+    var s=sum(arr)
+    s
   }
 
   def main(args: Array[String]) {
